@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_brand_tabs",
+  "info": {
+    "displayName": "Tabs"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string",
+      "required": true
+    },
+    "Content": {
+      "type": "text",
+      "required": true
+    }
+  },
+  "config": {}
+}

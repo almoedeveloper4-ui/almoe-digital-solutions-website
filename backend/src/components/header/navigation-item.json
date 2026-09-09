@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_header_navigation_items",
+  "info": {
+    "displayName": "Navigation Item"
+  },
+  "options": {},
+  "attributes": {
+    "Label": {
+      "type": "string",
+      "required": true
+    },
+    "Link": {
+      "type": "string"
+    },
+    "menuType": {
+      "type": "enumeration",
+      "required": true,
+      "default": "Link",
+      "enum": [
+        "Link",
+        "Brands",
+        "Products"
+      ]
+    }
+  },
+  "config": {}
+}
