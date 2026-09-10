@@ -45,5 +45,26 @@ export const getProductCategories = async () => {
   return response.data;
 };
 
+export const getSolutions = async () => {
+  const response = await api.get(
+    "/solutions?filters[isActive][$eq]=true&populate=*"
+  );
+  return response.data;
+};
+
+export const getLatestProducts = async () => {
+  const response = await api.get(
+    "/products?filters[isLatest][$eq]=true&filters[isActive][$eq]=true&populate=*"
+  );
+  return response.data;
+};
+
+export const getAllProducts = async () => {
+  const response = await api.get(
+    "/products?filters[isActive][$eq]=true&populate=*"
+  );
+  return response.data;
+};
+
 
 export default api;

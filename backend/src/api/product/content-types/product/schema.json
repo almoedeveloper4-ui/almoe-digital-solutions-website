@@ -47,6 +47,16 @@
       "relation": "manyToOne",
       "target": "api::product-category.product-category",
       "inversedBy": "products"
+    },
+    "solutions": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::solution.solution",
+      "mappedBy": "products"
+    },
+    "isLatest": {
+      "type": "boolean",
+      "default": false
     }
   }
 }

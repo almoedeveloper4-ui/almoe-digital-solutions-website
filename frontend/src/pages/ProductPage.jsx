@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getProductBySlug } from "../services/api";
+import "./ProductPage.css";
 
 function ProductPage() {
   const { slug } = useParams();
@@ -12,6 +13,7 @@ function ProductPage() {
         const response = await getProductBySlug(slug);
 
         setProduct(response.data[0]);
+      
       } catch (error) {
         console.error("Failed to load product:", error);
       }
@@ -23,6 +25,8 @@ function ProductPage() {
   if (!product) {
   return <p>Loading...</p>;
 }
+
+
 
   return (
      <div>
@@ -41,6 +45,7 @@ function ProductPage() {
 
     <p>{product.description}</p>
   </div>
+  
   );
 }
 

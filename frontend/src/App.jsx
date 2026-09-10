@@ -1,6 +1,8 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import BrandPage from "./pages/BrandPage";
 import ProductPage from "./pages/ProductPage";
+import SolutionsPage from "./pages/SolutionsPage";
+import ProductsPage from "./pages/ProductsPage";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 
@@ -11,7 +13,10 @@ function App() {
        <Header />
       <Routes>
         <Route path="/brands/:slug" element={<BrandPage />} />
+        <Route path="/products" element={<ProductsPage />} />
+<Route path="/products/:slug" element={<ProductPage />} />
         <Route path="/products/:slug" element={<ProductPage />} />
+        <Route path="/solutions" element={<SolutionsPage />} />
       </Routes>
         <Footer />
     </BrowserRouter>
