@@ -57,6 +57,106 @@
     "isLatest": {
       "type": "boolean",
       "default": false
+    },
+    "banner": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "Gallery": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "features": {
+      "type": "component",
+      "component": "product.feature",
+      "repeatable": true
+    },
+    "specifications": {
+      "type": "component",
+      "component": "product.specification",
+      "repeatable": true
+    },
+    "accessories": {
+      "type": "component",
+      "component": "product.accessory",
+      "repeatable": true
+    },
+    "datasheets": {
+      "type": "component",
+      "component": "product.datasheet",
+      "repeatable": true
+    },
+    "brochure": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "enquiryText": {
+      "type": "string"
+    },
+    "enquiryLink": {
+      "type": "string"
+    },
+    "products": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::product.product",
+      "inversedBy": "similarProducts"
+    },
+    "similarProducts": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::product.product",
+      "mappedBy": "products"
+    },
+    "metaTitle": {
+      "type": "string"
+    },
+    "metaDescription": {
+      "type": "text"
+    },
+    "canonicalUrl": {
+      "type": "string"
+    },
+    "noIndex": {
+      "type": "boolean",
+      "default": false
+    },
+    "noFollow": {
+      "type": "boolean",
+      "default": false
+    },
+    "ogTitle": {
+      "type": "string"
+    },
+    "ogDescription": {
+      "type": "text"
+    },
+    "ogImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "highlights": {
+      "type": "component",
+      "component": "product.highlight",
+      "repeatable": true
     }
   }
 }

@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_product_datasheets",
+  "info": {
+    "displayName": "Datasheet"
+  },
+  "options": {},
+  "attributes": {
+    "file": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "name": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "config": {}
+}

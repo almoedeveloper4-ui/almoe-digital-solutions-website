@@ -571,11 +571,24 @@ export interface ApiProductProduct extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    accessories: Schema.Attribute.Component<'product.accessory', true>;
+    banner: Schema.Attribute.Media<'images' | 'files'>;
     brand: Schema.Attribute.Relation<'manyToOne', 'api::brand.brand'>;
+    brochure: Schema.Attribute.Media<'images' | 'files'>;
+    canonicalUrl: Schema.Attribute.String;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    datasheets: Schema.Attribute.Component<'product.datasheet', true>;
     description: Schema.Attribute.Text;
+    enquiryLink: Schema.Attribute.String;
+    enquiryText: Schema.Attribute.String;
+    features: Schema.Attribute.Component<'product.feature', true>;
+    Gallery: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    highlights: Schema.Attribute.Component<'product.highlight', true>;
     image: Schema.Attribute.Media<'images' | 'files'> &
       Schema.Attribute.Required;
     isActive: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
@@ -586,12 +599,24 @@ export interface ApiProductProduct extends Struct.CollectionTypeSchema {
       'api::product.product'
     > &
       Schema.Attribute.Private;
+    metaDescription: Schema.Attribute.Text;
+    metaTitle: Schema.Attribute.String;
     name: Schema.Attribute.String & Schema.Attribute.Required;
+    noFollow: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    noIndex: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    ogDescription: Schema.Attribute.Text;
+    ogImage: Schema.Attribute.Media<'images' | 'files'>;
+    ogTitle: Schema.Attribute.String;
     product_category: Schema.Attribute.Relation<
       'manyToOne',
       'api::product-category.product-category'
     >;
+    products: Schema.Attribute.Relation<'manyToMany', 'api::product.product'>;
     publishedAt: Schema.Attribute.DateTime;
+    similarProducts: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::product.product'
+    >;
     slug: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.Unique;
@@ -599,6 +624,7 @@ export interface ApiProductProduct extends Struct.CollectionTypeSchema {
       'manyToMany',
       'api::solution.solution'
     >;
+    specifications: Schema.Attribute.Component<'product.specification', true>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

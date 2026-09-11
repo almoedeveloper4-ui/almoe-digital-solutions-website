@@ -22,7 +22,7 @@ export const getProductsByBrand = async (brandSlug) => {
 
 export const getProductBySlug = async (slug) => {
   const response = await api.get(
-    `/products?filters[slug][$eq]=${slug}&populate=*`
+    `/products?filters[slug][$eq]=${slug}&populate[image]=true&populate[Gallery]=true&populate[banner]=true&populate[brand]=true&populate[features]=true&populate[specifications]=true&populate[datasheets][populate][file]=true&populate[brochure]=true&populate[accessories][populate][image]=true&populate[similarProducts][populate][image]=true&populate[ogImage]=true`
   );
 
   return response.data;

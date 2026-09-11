@@ -100,6 +100,60 @@ export interface HeaderNavigationItem extends Struct.ComponentSchema {
   };
 }
 
+export interface ProductAccessory extends Struct.ComponentSchema {
+  collectionName: 'components_product_accessories';
+  info: {
+    displayName: 'Accessory';
+  };
+  attributes: {
+    image: Schema.Attribute.Media<'images' | 'files'>;
+    name: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface ProductDatasheet extends Struct.ComponentSchema {
+  collectionName: 'components_product_datasheets';
+  info: {
+    displayName: 'Datasheet';
+  };
+  attributes: {
+    file: Schema.Attribute.Media<'images' | 'files'>;
+    name: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface ProductFeature extends Struct.ComponentSchema {
+  collectionName: 'components_product_features';
+  info: {
+    displayName: 'Feature';
+  };
+  attributes: {
+    description: Schema.Attribute.Text & Schema.Attribute.Required;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface ProductHighlight extends Struct.ComponentSchema {
+  collectionName: 'components_product_highlights';
+  info: {
+    displayName: 'Highlight';
+  };
+  attributes: {
+    text: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface ProductSpecification extends Struct.ComponentSchema {
+  collectionName: 'components_product_specifications';
+  info: {
+    displayName: 'Specification';
+  };
+  attributes: {
+    name: Schema.Attribute.String & Schema.Attribute.Required;
+    value: Schema.Attribute.Text & Schema.Attribute.Required;
+  };
+}
+
 declare module '@strapi/strapi' {
   export namespace Public {
     export interface ComponentSchemas {
@@ -110,6 +164,11 @@ declare module '@strapi/strapi' {
       'brand.hero-slide': BrandHeroSlide;
       'brand.tabs': BrandTabs;
       'header.navigation-item': HeaderNavigationItem;
+      'product.accessory': ProductAccessory;
+      'product.datasheet': ProductDatasheet;
+      'product.feature': ProductFeature;
+      'product.highlight': ProductHighlight;
+      'product.specification': ProductSpecification;
     }
   }
 }
