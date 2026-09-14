@@ -2,6 +2,11 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getProductBySlug } from "../services/api";
 import { Helmet } from "react-helmet-async";
+import SliderImport from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
+const Slider = SliderImport.default ?? SliderImport;
 import "./ProductPage.css";
 
 function ProductPage() {
@@ -9,7 +14,8 @@ function ProductPage() {
   const [product, setProduct] = useState(null);
   const [activeImage, setActiveImage] = useState(null);
   const [activeTab, setActiveTab] = useState("features");
-  const [similarPage, setSimilarPage] = useState(0);
+const [similarPage, setSimilarPage] = useState(0);
+const [similarSlidesToShow, setSimilarSlidesToShow] = useState(3);
 
   useEffect(() => {
     const loadProduct = async () => {
@@ -28,6 +34,26 @@ setActiveImage(loadedProduct.image);
 
     loadProduct();
   }, [slug]);
+
+  useEffect(() => {
+  const updateSimilarSlides = () => {
+    if (window.innerWidth <= 767) {
+      setSimilarSlidesToShow(1);
+    } else if (window.innerWidth <= 1024) {
+      setSimilarSlidesToShow(2);
+    } else {
+      setSimilarSlidesToShow(3);
+    }
+  };
+
+  updateSimilarSlides();
+
+  window.addEventListener("resize", updateSimilarSlides);
+
+  return () => {
+    window.removeEventListener("resize", updateSimilarSlides);
+  };
+}, []);
 
   if (!product) {
   return <p>Loading...</p>;
@@ -124,7 +150,7 @@ const showNextImage = () => {
     </div>
   </section>
 )}
-   <section className="product-showcase">
+ <section className="product-showcase container">
 <div className="product-showcase-image">
 <div className="product-main-image">
 <button
@@ -219,7 +245,7 @@ const showNextImage = () => {
     </div>
   </div>
 </section>
-<section className="product-tabs">
+<section className="product-tabs container">
   <div className="product-tab-buttons">
     <button
       type="button"
@@ -322,86 +348,43 @@ const showNextImage = () => {
   </div>
 )}
 {product.similarProducts?.length > 0 && (
-  <section className="similar-products">
+ <section className="similar-products">
     <div className="similar-products-header">
       <h2>Similar Products</h2>
     </div>
 
-    {(() => {
-      const productsPerPage = 3;
-      const totalPages = Math.ceil(
-        product.similarProducts.length / productsPerPage
-      );
-
-      const visibleProducts = product.similarProducts.slice(
-        similarPage * productsPerPage,
-        similarPage * productsPerPage + productsPerPage
-      );
-
-      return (
-        <>
-          <div className="similar-products-wrapper">
-            <button
-              type="button"
-              className="similar-products-arrow similar-products-prev"
-              onClick={() =>
-                setSimilarPage((prev) =>
-                  prev > 0 ? prev - 1 : totalPages - 1
-                )
-              }
-            >
-              ←
-            </button>
-
-            <div className="similar-products-grid">
-              {visibleProducts.map((similarProduct) => (
-                <div
-                  className="similar-product-card"
-                  key={similarProduct.id}
-                >
-                  <div className="similar-product-image">
-                    {similarProduct.image?.url && (
-                      <img
-                        src={`http://localhost:1337${similarProduct.image.url}`}
-                        alt={similarProduct.name}
-                      />
-                    )}
-                  </div>
-
-                  <h3>{similarProduct.name}</h3>
-
-                  <a href={`/products/${similarProduct.slug}`}>
-                    View Product
-                  </a>
-                </div>
-              ))}
+    <Slider
+  dots={true}
+  infinite={true}
+  speed={500}
+  slidesToShow={similarSlidesToShow}
+  slidesToScroll={1}
+  arrows={true}
+>
+      {product.similarProducts.map((similarProduct) => (
+        <div
+          className="similar-product-slide"
+          key={similarProduct.id}
+        >
+          <div className="similar-product-card">
+            <div className="similar-product-image">
+              {similarProduct.image?.url && (
+                <img
+                  src={`http://localhost:1337${similarProduct.image.url}`}
+                  alt={similarProduct.name}
+                />
+              )}
             </div>
 
-            <button
-              type="button"
-              className="similar-products-arrow similar-products-next"
-              onClick={() =>
-                setSimilarPage((prev) =>
-                  prev < totalPages - 1 ? prev + 1 : 0
-                )
-              }
-            >
-              →
-            </button>
-          </div>
+            <h3>{similarProduct.name}</h3>
 
-          <div className="similar-products-dots">
-            {Array.from({ length: totalPages }).map((_, index) => (
-              <span
-                key={index}
-                className={similarPage === index ? "active" : ""}
-                onClick={() => setSimilarPage(index)}
-              ></span>
-            ))}
+            <a href={`/products/${similarProduct.slug}`}>
+              View Product
+            </a>
           </div>
-        </>
-      );
-    })()}
+        </div>
+      ))}
+    </Slider>
   </section>
 )}
 </section>

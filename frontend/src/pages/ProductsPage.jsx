@@ -13,6 +13,7 @@ getSolutions,
 getBrands,
 } from "../services/api";
 import "./ProductsPage.css";
+import { FiChevronDown, FiChevronUp, FiSearch } from "react-icons/fi";
 function ProductsPage() {
 const [products, setProducts] = useState([]);
 const [latestProducts, setLatestProducts] = useState([]);
@@ -79,9 +80,9 @@ const filteredProducts = products.filter((product) => {
   return categoryMatch && solutionMatch && brandMatch && searchMatch;
 });
 
-useEffect(() => {
-  setVisibleCount(12);
-}, [selectedCategories, selectedSolutions, selectedBrands, searchTerm]);
+// useEffect(() => {
+//   setVisibleCount(12);
+// }, [selectedCategories, selectedSolutions, selectedBrands, searchTerm]);
 
   useEffect(() => {
     const loadProducts = async () => {
@@ -107,7 +108,7 @@ setBrands(brandResponse.data);
   }, []);
 
   return (
-    <div className="products-page">
+    <div className="products-page container">
 
       <section className="latest-products">
   <div className="latest-products-header">
@@ -138,6 +139,8 @@ setBrands(brandResponse.data);
    <section className="product-filters">
 <h2 className="search-by-title">Search by</h2>
 <div className="filter-dropdown">
+
+
 <button
   type="button"
   className="filter-button"
@@ -146,8 +149,15 @@ setBrands(brandResponse.data);
     setOpenFilter(openFilter === "products" ? null : "products")
   }
 >
-  Products
+  <span>Products</span>
+
+  {openFilter === "products" ? (
+    <FiChevronUp />
+  ) : (
+    <FiChevronDown />
+  )}
 </button>
+
 {openFilter === "products" && (
     <div className="filter-options">
     {productCategories.map((category) => (
@@ -170,16 +180,26 @@ setBrands(brandResponse.data);
    )}
 </div>
   <div className="filter-dropdown">
+
+
 <button
   type="button"
   className="filter-button"
-    aria-expanded={openFilter === "solutions"}
+  aria-expanded={openFilter === "solutions"}
   onClick={() =>
     setOpenFilter(openFilter === "solutions" ? null : "solutions")
   }
 >
-  Solutions
+  <span>Solutions</span>
+
+  {openFilter === "solutions" ? (
+    <FiChevronUp />
+  ) : (
+    <FiChevronDown />
+  )}
 </button>
+
+
 {openFilter === "solutions" && (
   <div className="filter-options">
     {solutions.map((solution) => (
@@ -203,16 +223,24 @@ setBrands(brandResponse.data);
 </div>
 
 <div className="filter-dropdown">
+
 <button
   type="button"
   className="filter-button"
-   aria-expanded={openFilter === "brands"}
+  aria-expanded={openFilter === "brands"}
   onClick={() =>
     setOpenFilter(openFilter === "brands" ? null : "brands")
   }
 >
-  Brands
+  <span>Brands</span>
+
+  {openFilter === "brands" ? (
+    <FiChevronUp />
+  ) : (
+    <FiChevronDown />
+  )}
 </button>
+
 {openFilter === "brands" && (
   <div className="filter-options">
     {brands.map((brand) => (
@@ -234,13 +262,17 @@ setBrands(brandResponse.data);
   </div>
   )}
 </div>
+
+
 <div className="product-search">
-<input
-  type="text"
-  placeholder="Search model no."
-  value={searchTerm}
-  onChange={(event) => setSearchTerm(event.target.value)}
-/>
+  <input
+    type="text"
+    placeholder="Search model no."
+    value={searchTerm}
+    onChange={(event) => setSearchTerm(event.target.value)}
+  />
+
+  <FiSearch className="product-search-icon" />
 </div>
 </section>
 
