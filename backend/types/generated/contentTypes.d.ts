@@ -457,6 +457,9 @@ export interface ApiBrandBrand extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    CTA: Schema.Attribute.Component<'brand.cta', false>;
+    Expertise: Schema.Attribute.Component<'brand.expertise', true>;
+    ExpertiseBackground: Schema.Attribute.Media<'images' | 'files', true>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::brand.brand'> &
       Schema.Attribute.Private;

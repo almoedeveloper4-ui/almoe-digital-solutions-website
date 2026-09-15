@@ -1,16 +1,35 @@
+import "./ContentBlock.css";
+
 function ContentBlock({ data }) {
+  const imageOnRight = data.imagePosition === "right";
+
   return (
-    <section>
-      <img
-        src={`http://localhost:1337${data.Media.url}`}
-        alt={data.Title}
-      />
+    <section
+      className={`brand-content-block ${
+        imageOnRight ? "image-right" : "image-left"
+      }`}
+    >
+      <div className="brand-content-block-image">
+        <img
+          src={`http://localhost:1337${data.Media.url}`}
+          alt={data.Title}
+        />
+      </div>
 
-      <h2>{data.Title}</h2>
+      <div className="brand-content-block-content">
+        <h2>{data.Title}</h2>
 
-      <p>{data.Description}</p>
+        <p>{data.Description}</p>
 
-      <a href={data.buttonLink}>{data.buttonText}</a>
+        {data.buttonText && data.buttonLink && (
+          <a
+            href={data.buttonLink}
+            className="brand-content-block-button"
+          >
+            {data.buttonText}
+          </a>
+        )}
+      </div>
     </section>
   );
 }

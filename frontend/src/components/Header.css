@@ -164,6 +164,20 @@ header {
   padding-bottom: 12px;
 }
 
+.header-social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #111;
+  font-size: 20px;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.header-social-link:hover {
+  opacity: 0.65;
+}
+
 @media (max-width: 1280px) {
   nav {
     display: none;

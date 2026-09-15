@@ -47,6 +47,34 @@ export interface BrandContentBlock extends Struct.ComponentSchema {
   };
 }
 
+export interface BrandCta extends Struct.ComponentSchema {
+  collectionName: 'components_brand_ctas';
+  info: {
+    displayName: 'CTA';
+  };
+  attributes: {
+    Description: Schema.Attribute.Text;
+    PrimaryButtonLink: Schema.Attribute.String;
+    PrimaryButtonText: Schema.Attribute.String;
+    SecondaryButtonLink: Schema.Attribute.String;
+    SecondaryButtonText: Schema.Attribute.String;
+    Title: Schema.Attribute.String;
+  };
+}
+
+export interface BrandExpertise extends Struct.ComponentSchema {
+  collectionName: 'components_brand_expertise';
+  info: {
+    displayName: 'Expertise';
+  };
+  attributes: {
+    Description: Schema.Attribute.Text;
+    Icon: Schema.Attribute.Media<'images' | 'files'> &
+      Schema.Attribute.Required;
+    Text: Schema.Attribute.String;
+  };
+}
+
 export interface BrandGallery extends Struct.ComponentSchema {
   collectionName: 'components_brand_galleries';
   info: {
@@ -68,6 +96,7 @@ export interface BrandHeroSlide extends Struct.ComponentSchema {
     displayName: 'Hero Slide';
   };
   attributes: {
+    buttonText: Schema.Attribute.String;
     Image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'> &
       Schema.Attribute.Required;
     Link: Schema.Attribute.String;
@@ -160,6 +189,8 @@ declare module '@strapi/strapi' {
       'brand.cards': BrandCards;
       'brand.case-study': BrandCaseStudy;
       'brand.content-block': BrandContentBlock;
+      'brand.cta': BrandCta;
+      'brand.expertise': BrandExpertise;
       'brand.gallery': BrandGallery;
       'brand.hero-slide': BrandHeroSlide;
       'brand.tabs': BrandTabs;

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { getHeader, getBrands, getProductCategories } from "../services/api";
+import { FaLinkedinIn, FaInstagram } from "react-icons/fa";
 import "./Header.css";
 
 function Header() {
@@ -91,13 +92,25 @@ const categoryResponse = await getProductCategories();
     );
   })}
 
-    <a href={header.linkedinUrl} target="_blank" rel="noreferrer">
-    LinkedIn
-  </a>
+  <a
+  href="YOUR_LINKEDIN_URL"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="header-social-link"
+  aria-label="LinkedIn"
+>
+  <FaLinkedinIn />
+</a>
 
-  <a href={header.instagramUrl} target="_blank" rel="noreferrer">
-    Instagram
-  </a>
+<a
+  href="YOUR_INSTAGRAM_URL"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="header-social-link"
+  aria-label="Instagram"
+>
+  <FaInstagram />
+</a>
 
 <a className="call-button" href={header.callUsLink}>
   {header.callUsText}

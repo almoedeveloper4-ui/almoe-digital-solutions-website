@@ -22,6 +22,9 @@
     },
     "Link": {
       "type": "string"
+    },
+    "buttonText": {
+      "type": "string"
     }
   },
   "config": {}

@@ -57,6 +57,24 @@
       "relation": "manyToMany",
       "target": "api::solution.solution",
       "mappedBy": "brands"
+    },
+    "Expertise": {
+      "type": "component",
+      "component": "brand.expertise",
+      "repeatable": true
+    },
+    "ExpertiseBackground": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "CTA": {
+      "type": "component",
+      "component": "brand.cta",
+      "repeatable": false
     }
   }
 }

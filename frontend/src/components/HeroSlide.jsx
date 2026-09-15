@@ -1,14 +1,47 @@
-function HeroSlide({ data }) {
+import SliderImport from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import "./HeroSlide.css";
+
+const Slider = SliderImport.default ?? SliderImport;
+
+function HeroSlide({ slides, logo }) {
+  const showDots = slides.length > 1;
+
   return (
-    <section>
-      <img
-        src={`http://localhost:1337${data.Image.url}`}
-        alt={data.Title}
-      />
+    <section className="brand-hero">
+      <Slider
+        dots={showDots}
+        infinite={slides.length > 1}
+        speed={600}
+        slidesToShow={1}
+        slidesToScroll={1}
+        arrows={false}
+        autoplay={slides.length > 1}
+        autoplaySpeed={5000}
+      >
+        {slides.map((slide) => (
+          <div className="brand-hero-slide" key={slide.id}>
+            <img
+              className="brand-hero-image"
+              src={`http://localhost:1337${slide.Image.url}`}
+              alt={slide.Title}
+            />
 
-      <h2>{data.Title}</h2>
+            <div className="brand-hero-overlay">
+              <h2>{slide.Title}</h2>
 
-      <a href={data.Link}>Learn More</a>
+              {logo && (
+                <img
+                  className="brand-hero-logo"
+                  src={`http://localhost:1337${logo.url}`}
+                  alt="Brand Logo"
+                />
+              )}
+            </div>
+          </div>
+        ))}
+      </Slider>
     </section>
   );
 }

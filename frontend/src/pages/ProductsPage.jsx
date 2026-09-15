@@ -5,6 +5,7 @@ import "slick-carousel/slick/slick-theme.css";
 const Slider = SliderImport.default ?? SliderImport;
 
 import { useEffect, useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import {
   getAllProducts,
   getLatestProducts,
@@ -15,6 +16,9 @@ getBrands,
 import "./ProductsPage.css";
 import { FiChevronDown, FiChevronUp, FiSearch } from "react-icons/fi";
 function ProductsPage() {
+  const [searchParams] = useSearchParams();
+const brandSlug = searchParams.get("brand");
+const categorySlug = searchParams.get("category");
 const [products, setProducts] = useState([]);
 const [latestProducts, setLatestProducts] = useState([]);
 const [productCategories, setProductCategories] = useState([]);
@@ -94,11 +98,31 @@ setLatestProducts(latestResponse.data);
 const categoryResponse = await getProductCategories();
 setProductCategories(categoryResponse.data);
 
+if (categorySlug) {
+const selectedCategory = categoryResponse.data.find(
+  (category) => category.Slug === categorySlug
+);
+
+  if (selectedCategory) {
+    setSelectedCategories([selectedCategory.id]);
+  }
+}
+
 const solutionResponse = await getSolutions();
 setSolutions(solutionResponse.data);
 
 const brandResponse = await getBrands();
 setBrands(brandResponse.data);
+
+if (brandSlug) {
+  const selectedBrand = brandResponse.data.find(
+    (brand) => brand.slug === brandSlug
+  );
+
+  if (selectedBrand) {
+    setSelectedBrands([selectedBrand.id]);
+  }
+}
       } catch (error) {
         console.error("Failed to load products:", error);
       }

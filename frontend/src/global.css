@@ -19,6 +19,15 @@ font-family: "DM Sans", sans-serif;
   background: #fff;
 }
 
+html,
+body,
+#root {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+
 :root {
   --color-primary: #006fae;
   --color-primary-dark: #005a8c;

@@ -1,0 +1,254 @@
+.brand-products {
+  width: 100%;
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 90px 40px;
+  box-sizing: border-box;
+}
+
+/* Header */
+
+.brand-products-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  margin-bottom: 60px;
+}
+
+.brand-products-header h2 {
+  margin: 0;
+  font-size: 40px;
+  line-height: 1.15;
+  font-weight: 600;
+  color: #222;
+}
+
+/* View All Products */
+
+.brand-products-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 52px;
+  padding: 0 40px;
+  border: 1px solid #006fae;
+  border-radius: 999px;
+  background: #fff;
+  color: #006fae;
+  font-size: 16px;
+  font-weight: 500;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.brand-products-button:hover {
+  background: #006fae;
+  color: #fff;
+}
+
+/* Slider */
+
+.brand-products-slider {
+  width: 100%;
+}
+
+.brand-products-slider .slick-list {
+  margin: 0 -12px;
+}
+
+.brand-products-slider .slick-slide {
+  padding: 0 12px;
+  box-sizing: border-box;
+}
+
+/* Product card */
+
+.brand-product-card {
+  display: block;
+  width: 100%;
+  text-decoration: none;
+  color: #222;
+}
+
+.brand-product-image {
+  width: 100%;
+  height: 345px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+  background: #f3f3f3;
+  border-radius: 12px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.brand-product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.brand-product-card h3 {
+  margin: 18px 0 0;
+  text-align: center;
+  font-size: 18px;
+  line-height: 1.3;
+  font-weight: 500;
+  color: #222;
+}
+
+/* Arrows */
+
+.brand-products-slider .slick-prev,
+.brand-products-slider .slick-next {
+  z-index: 5;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: #fff;
+  border: 1px solid #ddd;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.12);
+}
+
+.brand-products-slider .slick-prev {
+  left: -22px;
+}
+
+.brand-products-slider .slick-next {
+  right: -22px;
+}
+
+.brand-products-slider .slick-prev::before,
+.brand-products-slider .slick-next::before {
+  color: #222;
+  font-size: 20px;
+  opacity: 1;
+}
+
+/* When there are 4 or fewer products */
+.brand-products-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.brand-products-grid .brand-product-slide {
+  width: 100%;
+}
+
+/* Tablet */
+
+@media (max-width: 1024px) {
+  .brand-products {
+    padding: 80px 32px;
+  }
+
+  .brand-products-header {
+    margin-bottom: 40px;
+  }
+
+  .brand-products-header h2 {
+    font-size: 36px;
+  }
+
+  .brand-products-button {
+    min-height: 48px;
+    padding: 0 28px;
+  }
+
+  .brand-product-image {
+    height: 300px;
+    padding: 24px;
+  }
+
+  .brand-product-card h3 {
+    font-size: 17px;
+  }
+
+  .brand-products-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+}
+
+/* Mobile */
+
+@media (max-width: 767px) {
+  .brand-products {
+    padding: 60px 20px;
+  }
+
+  .brand-products-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    margin-bottom: 32px;
+  }
+
+  .brand-products-header h2 {
+    font-size: 30px;
+  }
+
+  .brand-products-button {
+    min-height: 46px;
+    padding: 0 24px;
+    font-size: 15px;
+  }
+
+  .brand-products-slider .slick-list {
+    margin: 0 -8px;
+  }
+
+  .brand-products-slider .slick-slide {
+    padding: 0 8px;
+  }
+
+  .brand-product-image {
+    height: 300px;
+    padding: 24px;
+  }
+
+  .brand-product-card h3 {
+    margin-top: 14px;
+    font-size: 16px;
+  }
+
+  .brand-products-slider .slick-prev,
+  .brand-products-slider .slick-next {
+    width: 36px;
+    height: 36px;
+  }
+
+  .brand-products-slider .slick-prev {
+    left: -8px;
+  }
+
+  .brand-products-slider .slick-next {
+    right: -8px;
+  }
+
+  .brand-products-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+/* Small mobile */
+
+@media (max-width: 480px) {
+  .brand-products {
+    padding: 48px 20px;
+  }
+
+  .brand-products-header h2 {
+    font-size: 28px;
+  }
+
+  .brand-product-image {
+    height: 260px;
+  }
+}

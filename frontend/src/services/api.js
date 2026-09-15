@@ -6,9 +6,8 @@ const api = axios.create({
 
 export const getBrandBySlug = async (slug) => {
   const response = await api.get(
-    `/brands?filters[slug][$eq]=${slug}&populate[pageSections][populate]=*`
+    `/brands?filters[slug][$eq]=${slug}&populate[logo]=true&populate[pageSections][populate]=*&populate[Expertise][populate]=*&populate[CTA][populate]=*`
   );
-
   return response.data;
 };
 

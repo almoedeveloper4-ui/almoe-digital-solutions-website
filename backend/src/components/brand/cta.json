@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_brand_ctas",
+  "info": {
+    "displayName": "CTA"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "text"
+    },
+    "PrimaryButtonText": {
+      "type": "string"
+    },
+    "PrimaryButtonLink": {
+      "type": "string"
+    },
+    "SecondaryButtonText": {
+      "type": "string"
+    },
+    "SecondaryButtonLink": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}
