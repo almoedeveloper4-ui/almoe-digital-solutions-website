@@ -2,7 +2,7 @@ function CaseStudy({ data }) {
   return (
     <section>
       <img
-        src={`http://localhost:1337${data.Media.url}`}
+       src={data.Media.url}
         alt={data.Title}
       />
 

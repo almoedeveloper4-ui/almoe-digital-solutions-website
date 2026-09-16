@@ -1,0 +1,145 @@
+.why-almoe {
+  position: relative;
+  width: 100%;
+  padding: var(--space-3xl) 0;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+}
+
+.why-almoe::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 0;
+}
+
+.why-almoe .container {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+.why-almoe h2 {
+  margin: 0 0 var(--space-xl);
+  color: var(--color-white);
+  font-size: 40px;
+  line-height: 1.15;
+  font-weight: 600;
+}
+
+.why-almoe-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-sm);
+  margin-bottom: var(--space-xl);
+}
+
+
+.why-almoe-stat {
+  min-height: 200px;
+  padding: var(--space-lg);
+  background: rgba(255, 255, 255, 0.94);
+  border-radius: var(--radius-sm);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.why-almoe-stat h3 {
+  margin: 0 0 var(--space-xs);
+  color: #000;
+  font-size: 32px;
+  line-height: 1;
+  font-weight: 700;
+}
+
+.why-almoe-stat h4 {
+  margin: 0 0 var(--space-sm);
+  color: var(--color-text);
+  font-size: 18px;
+  line-height: 1.25;
+  font-weight: 600;
+}
+
+.why-almoe-stat p {
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.why-almoe-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 56px;
+  padding: 0 40px;
+  border-radius: var(--radius-sm);
+  background: var(--color-white);
+  color: #f7941d;
+  font-size: 18px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.why-almoe-button:hover {
+  background: #f7941d;
+  color: var(--color-white);
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .why-almoe {
+    padding: var(--space-2xl) 0;
+  }
+
+  .why-almoe h2 {
+    font-size: 40px;
+  }
+
+  .why-almoe-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+  .why-almoe {
+    padding: var(--space-xl) 0;
+  }
+
+  .why-almoe h2 {
+    margin-bottom: var(--space-lg);
+    font-size: 32px;
+  }
+
+  .why-almoe-stats {
+    grid-template-columns: 1fr;
+    gap: var(--space-sm);
+  }
+
+  .why-almoe-stat {
+    padding: var(--space-md);
+  }
+
+  .why-almoe-stat h3 {
+    font-size: 36px;
+  }
+
+  .why-almoe-stat h4 {
+    font-size: 18px;
+  }
+
+  .why-almoe-stat p {
+    font-size: 15px;
+  }
+
+  .why-almoe-button {
+    width: 100%;
+    padding: 0 var(--space-md);
+  }
+}

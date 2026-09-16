@@ -1,0 +1,30 @@
+{
+  "collectionName": "components_homepage_technology_partners",
+  "info": {
+    "displayName": "technology-partner"
+  },
+  "options": {},
+  "attributes": {
+    "Background": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ]
+    },
+    "Title": {
+      "type": "string",
+      "required": true
+    },
+    "ButtonText": {
+      "type": "string"
+    },
+    "ButtonLink": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

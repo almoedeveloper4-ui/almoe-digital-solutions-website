@@ -24,7 +24,7 @@ function SolutionsPage() {
     {solutions.map((solution) => (
   <div key={solution.id}>
         <img
-      src={`http://localhost:1337${solution.Image.url}`}
+     src={solution.Image.url}
       alt={solution.Name}
     />
 

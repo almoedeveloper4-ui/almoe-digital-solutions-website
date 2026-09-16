@@ -7,7 +7,7 @@ function ProductSection({ products }) {
         <div key={product.id}>
         <a href={`/products/${product.slug}`}>
   <img
-    src={`http://localhost:1337${product.image.url}`}
+  src={product.image.url}
     alt={product.name}
   />
 

@@ -6,7 +6,7 @@ function Gallery({ data }) {
       {data.Media.map((media) => (
         <img
           key={media.id}
-          src={`http://localhost:1337${media.url}`}
+         src={media.url}
           alt={data.Title}
         />
       ))}

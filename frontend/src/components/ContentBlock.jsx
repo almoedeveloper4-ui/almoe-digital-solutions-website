@@ -11,7 +11,7 @@ function ContentBlock({ data }) {
     >
       <div className="brand-content-block-image">
         <img
-          src={`http://localhost:1337${data.Media.url}`}
+          src={data.Media.url}
           alt={data.Title}
         />
       </div>

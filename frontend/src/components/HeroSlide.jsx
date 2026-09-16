@@ -24,7 +24,7 @@ function HeroSlide({ slides, logo }) {
           <div className="brand-hero-slide" key={slide.id}>
             <img
               className="brand-hero-image"
-              src={`http://localhost:1337${slide.Image.url}`}
+            src={slide.Image.url}
               alt={slide.Title}
             />
 
@@ -34,7 +34,7 @@ function HeroSlide({ slides, logo }) {
               {logo && (
                 <img
                   className="brand-hero-logo"
-                  src={`http://localhost:1337${logo.url}`}
+                 src={logo.url}
                   alt="Brand Logo"
                 />
               )}

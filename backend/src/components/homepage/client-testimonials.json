@@ -1,0 +1,33 @@
+{
+  "collectionName": "components_homepage_client_testimonials",
+  "info": {
+    "displayName": "client-testimonials"
+  },
+  "options": {},
+  "attributes": {
+    "Image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "Name": {
+      "type": "string",
+      "required": true
+    },
+    "Text": {
+      "type": "string",
+      "required": true
+    },
+    "Designation": {
+      "type": "text",
+      "required": true
+    }
+  },
+  "config": {}
+}

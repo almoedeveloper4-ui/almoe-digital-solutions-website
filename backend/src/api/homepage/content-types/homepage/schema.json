@@ -1,0 +1,55 @@
+{
+  "kind": "singleType",
+  "collectionName": "homepages",
+  "info": {
+    "singularName": "homepage",
+    "pluralName": "homepages",
+    "displayName": "Homepage"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Hero": {
+      "type": "component",
+      "component": "homepage.hero",
+      "repeatable": false
+    },
+    "WhyAlmoe": {
+      "type": "component",
+      "component": "homepage.why-almoe",
+      "repeatable": false
+    },
+    "BusinessSolutions": {
+      "type": "component",
+      "component": "homepage.business-solutions",
+      "repeatable": false
+    },
+    "Brands": {
+      "type": "component",
+      "component": "homepage.brands",
+      "repeatable": false
+    },
+    "TechnologyPartner": {
+      "type": "component",
+      "component": "homepage.technology-partner",
+      "repeatable": false
+    },
+    "LatestNews": {
+      "type": "component",
+      "component": "homepage.events",
+      "repeatable": true
+    },
+    "ClientTestimonials": {
+      "type": "component",
+      "component": "homepage.client-testimonials",
+      "repeatable": true
+    },
+    "ContactSection": {
+      "type": "component",
+      "component": "homepage.contact-section",
+      "repeatable": false
+    }
+  }
+}

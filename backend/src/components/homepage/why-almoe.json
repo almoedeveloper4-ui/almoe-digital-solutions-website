@@ -1,0 +1,36 @@
+{
+  "collectionName": "components_homepage_why_almoes",
+  "info": {
+    "displayName": "why-almoe"
+  },
+  "options": {},
+  "attributes": {
+    "Background": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "Title": {
+      "type": "string",
+      "required": true
+    },
+    "Stats": {
+      "type": "component",
+      "component": "homepage.stats",
+      "repeatable": true
+    },
+    "ButtonText": {
+      "type": "string"
+    },
+    "ButtonLink": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

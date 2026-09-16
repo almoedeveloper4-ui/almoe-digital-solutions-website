@@ -21,6 +21,7 @@ const brandSlug = searchParams.get("brand");
 const categorySlug = searchParams.get("category");
 const [products, setProducts] = useState([]);
 const [latestProducts, setLatestProducts] = useState([]);
+const [latestSlidesToShow, setLatestSlidesToShow] = useState(4);
 const [productCategories, setProductCategories] = useState([]);
 const [solutions, setSolutions] = useState([]);
 const [brands, setBrands] = useState([]);
@@ -32,6 +33,26 @@ const [searchTerm, setSearchTerm] = useState("");
 const [openFilter, setOpenFilter] = useState(null);
 
 
+useEffect(() => {
+  const updateLatestSlides = () => {
+    if (window.innerWidth <= 767) {
+      setLatestSlidesToShow(1);
+    } else if (window.innerWidth <= 1024) {
+      setLatestSlidesToShow(2);
+    } else {
+      setLatestSlidesToShow(4);
+    }
+  };
+
+  updateLatestSlides();
+  window.addEventListener("resize", updateLatestSlides);
+
+  return () => {
+    window.removeEventListener("resize", updateLatestSlides);
+  };
+}, []);
+
+
 const sliderSettings = {
   dots: false,
   infinite: true,
@@ -39,20 +60,22 @@ const sliderSettings = {
   slidesToShow: 4,
   slidesToScroll: 1,
   arrows: true,
-  responsive: [
-    {
-      breakpoint: 1024,
-      settings: {
-        slidesToShow: 2,
-      },
+ responsive: [
+  {
+    breakpoint: 1024,
+    settings: {
+      slidesToShow: 2,
+      slidesToScroll: 1,
     },
-    {
-      breakpoint: 768,
-      settings: {
-        slidesToShow: 1,
-      },
+  },
+  {
+    breakpoint: 768,
+    settings: {
+      slidesToShow: 1,
+      slidesToScroll: 1,
     },
-  ],
+  },
+],
 };
 
 
@@ -139,7 +162,14 @@ if (brandSlug) {
     <h2>Latest Products</h2>
   </div>
 
-  <Slider {...sliderSettings}>
+ <Slider
+  dots={false}
+  infinite={true}
+  speed={500}
+  slidesToShow={latestSlidesToShow}
+  slidesToScroll={1}
+  arrows={true}
+>
     {latestProducts.map((latestProduct) => (
       <div key={latestProduct.id} className="latest-product-slide">
         <a
@@ -148,7 +178,7 @@ if (brandSlug) {
         >
           <div className="latest-product-image">
             <img
-              src={`http://localhost:1337${latestProduct.image.url}`}
+             src={latestProduct.image.url}
               alt={latestProduct.name}
             />
           </div>
@@ -307,7 +337,7 @@ if (brandSlug) {
 {filteredProducts.slice(0, visibleCount).map((product) => (
     <div key={product.id} className="product-card">
       <img
-        src={`http://localhost:1337${product.image.url}`}
+       src={product.image.url}
         alt={product.name}
       />
 

@@ -129,7 +129,7 @@ const showNextImage = () => {
 {product.ogImage?.url && (
   <meta
     property="og:image"
-    content={`http://localhost:1337${product.ogImage.url}`}
+  content={product.ogImage.url}
   />
 )}
 
@@ -141,7 +141,7 @@ const showNextImage = () => {
 {product.banner?.url && (
   <section className="product-banner">
     <img
-      src={`http://localhost:1337${product.banner.url}`}
+      src={product.banner.url}
       alt={product.name}
     />
 
@@ -162,7 +162,7 @@ const showNextImage = () => {
 </button>
 
   <img
-    src={`http://localhost:1337${activeImage?.url}`}
+  src={activeImage.url}
     alt={product.name}
   />
 
@@ -188,7 +188,7 @@ const showNextImage = () => {
         onClick={() => setActiveImage(galleryImage)}
       >
         <img
-          src={`http://localhost:1337${galleryImage.url}`}
+          src={galleryImage.url}
           alt={galleryImage.alternativeText || product.name}
         />
       </button>
@@ -229,7 +229,7 @@ const showNextImage = () => {
     <div className="product-actions">
       {product.brochure?.url && (
         <a
-          href={`http://localhost:1337${product.brochure.url}`}
+       href={product.brochure.url}
           target="_blank"
           rel="noreferrer"
         >
@@ -311,7 +311,7 @@ const showNextImage = () => {
         {accessory.image?.url && (
           <div className="accessory-image">
             <img
-              src={`http://localhost:1337${accessory.image.url}`}
+            src={accessory.image.url}
               alt={accessory.name}
             />
           </div>
@@ -335,7 +335,7 @@ const showNextImage = () => {
 
         {datasheet.file?.url && (
           <a
-            href={`http://localhost:1337${datasheet.file.url}`}
+         href={datasheet.file.url}
             target="_blank"
             rel="noreferrer"
           >
@@ -370,7 +370,7 @@ const showNextImage = () => {
             <div className="similar-product-image">
               {similarProduct.image?.url && (
                 <img
-                  src={`http://localhost:1337${similarProduct.image.url}`}
+                src={similarProduct.image.url}
                   alt={similarProduct.name}
                 />
               )}

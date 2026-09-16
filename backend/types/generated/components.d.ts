@@ -129,6 +129,163 @@ export interface HeaderNavigationItem extends Struct.ComponentSchema {
   };
 }
 
+export interface HomepageBrands extends Struct.ComponentSchema {
+  collectionName: 'components_homepage_brands';
+  info: {
+    displayName: 'brands';
+  };
+  attributes: {
+    brands: Schema.Attribute.Relation<'oneToMany', 'api::brand.brand'> &
+      Schema.Attribute.Required;
+    Title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface HomepageBusinessSolutions extends Struct.ComponentSchema {
+  collectionName: 'components_homepage_business_solutions';
+  info: {
+    displayName: 'business-solutions';
+  };
+  attributes: {
+    Background: Schema.Attribute.Media<'images' | 'files' | 'videos'> &
+      Schema.Attribute.Required;
+    ButtonLink: Schema.Attribute.String;
+    ButtonText: Schema.Attribute.String;
+    Description: Schema.Attribute.Text;
+    Image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'> &
+      Schema.Attribute.Required;
+    Title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface HomepageClientTestimonials extends Struct.ComponentSchema {
+  collectionName: 'components_homepage_client_testimonials';
+  info: {
+    displayName: 'client-testimonials';
+  };
+  attributes: {
+    Designation: Schema.Attribute.Text & Schema.Attribute.Required;
+    Image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'> &
+      Schema.Attribute.Required;
+    Name: Schema.Attribute.String & Schema.Attribute.Required;
+    Text: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface HomepageContactSection extends Struct.ComponentSchema {
+  collectionName: 'components_homepage_contact_sections';
+  info: {
+    displayName: 'contact-section';
+  };
+  attributes: {
+    ButtonLink: Schema.Attribute.String;
+    ButtonText: Schema.Attribute.String;
+    Description: Schema.Attribute.Text & Schema.Attribute.Required;
+    Title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface HomepageEvents extends Struct.ComponentSchema {
+  collectionName: 'components_homepage_events';
+  info: {
+    displayName: 'Events';
+  };
+  attributes: {
+    ButtonLink: Schema.Attribute.String;
+    ButtonText: Schema.Attribute.String;
+    Description: Schema.Attribute.Text;
+    Image: Schema.Attribute.Media<'images' | 'files' | 'videos'> &
+      Schema.Attribute.Required;
+    Title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface HomepageHero extends Struct.ComponentSchema {
+  collectionName: 'components_homepage_heroes';
+  info: {
+    displayName: 'hero';
+  };
+  attributes: {
+    Background: Schema.Attribute.Media<
+      'images' | 'videos' | 'audios' | 'files'
+    > &
+      Schema.Attribute.Required;
+    ButtonLink: Schema.Attribute.String;
+    ButtonText: Schema.Attribute.String;
+    Description: Schema.Attribute.Text & Schema.Attribute.Required;
+    Logo: Schema.Attribute.Media<'images' | 'files' | 'videos'>;
+    Title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface HomepageLatestNews extends Struct.ComponentSchema {
+  collectionName: 'components_homepage_latest_news';
+  info: {
+    displayName: 'latest-news';
+  };
+  attributes: {
+    Events: Schema.Attribute.Component<'homepage.events', true>;
+    Title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface HomepageStats extends Struct.ComponentSchema {
+  collectionName: 'components_homepage_stats';
+  info: {
+    displayName: 'Stats';
+  };
+  attributes: {
+    Description: Schema.Attribute.Text;
+    Label: Schema.Attribute.String & Schema.Attribute.Required;
+    Number: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface HomepageTechnologyPartner extends Struct.ComponentSchema {
+  collectionName: 'components_homepage_technology_partners';
+  info: {
+    displayName: 'technology-partner';
+  };
+  attributes: {
+    Background: Schema.Attribute.Media<'images' | 'files' | 'videos'> &
+      Schema.Attribute.Required;
+    ButtonLink: Schema.Attribute.String;
+    ButtonText: Schema.Attribute.String;
+    Title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface HomepageTestimonials extends Struct.ComponentSchema {
+  collectionName: 'components_homepage_testimonials';
+  info: {
+    displayName: 'testimonials';
+  };
+  attributes: {
+    testimonial: Schema.Attribute.Component<
+      'homepage.client-testimonials',
+      true
+    >;
+    Title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface HomepageWhyAlmoe extends Struct.ComponentSchema {
+  collectionName: 'components_homepage_why_almoes';
+  info: {
+    displayName: 'why-almoe';
+  };
+  attributes: {
+    Background: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    > &
+      Schema.Attribute.Required;
+    ButtonLink: Schema.Attribute.String;
+    ButtonText: Schema.Attribute.String;
+    Stats: Schema.Attribute.Component<'homepage.stats', true>;
+    Title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface ProductAccessory extends Struct.ComponentSchema {
   collectionName: 'components_product_accessories';
   info: {
@@ -195,6 +352,17 @@ declare module '@strapi/strapi' {
       'brand.hero-slide': BrandHeroSlide;
       'brand.tabs': BrandTabs;
       'header.navigation-item': HeaderNavigationItem;
+      'homepage.brands': HomepageBrands;
+      'homepage.business-solutions': HomepageBusinessSolutions;
+      'homepage.client-testimonials': HomepageClientTestimonials;
+      'homepage.contact-section': HomepageContactSection;
+      'homepage.events': HomepageEvents;
+      'homepage.hero': HomepageHero;
+      'homepage.latest-news': HomepageLatestNews;
+      'homepage.stats': HomepageStats;
+      'homepage.technology-partner': HomepageTechnologyPartner;
+      'homepage.testimonials': HomepageTestimonials;
+      'homepage.why-almoe': HomepageWhyAlmoe;
       'product.accessory': ProductAccessory;
       'product.datasheet': ProductDatasheet;
       'product.feature': ProductFeature;

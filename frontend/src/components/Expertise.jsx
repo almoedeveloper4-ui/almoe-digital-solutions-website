@@ -4,11 +4,11 @@ function Expertise({ data, backgroundImage }) {
   return (
  <section
   className="brand-expertise"
-  style={{
-    backgroundImage: backgroundImage?.length
-      ? `url(http://localhost:1337${backgroundImage[0].url})`
-      : "none",
-  }}
+style={{
+  backgroundImage: backgroundImage?.length
+    ? `url(${data.ExpertiseBackground?.[0]?.url})`
+    : "none",
+}}
 >
       <div className="container brand-expertise-inner">
 
@@ -21,7 +21,7 @@ function Expertise({ data, backgroundImage }) {
             <div className="brand-expertise-item" key={item.id}>
               <div className="brand-expertise-icon">
                 <img
-                  src={`http://localhost:1337${item.Icon.url}`}
+                 src={item.Icon.url}
                   alt={item.Text}
                 />
               </div>

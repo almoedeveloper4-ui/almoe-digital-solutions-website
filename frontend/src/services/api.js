@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "http://localhost:1337/api",
+  baseURL: "/api",
 });
 
 export const getBrandBySlug = async (slug) => {
@@ -65,5 +65,25 @@ export const getAllProducts = async () => {
   return response.data;
 };
 
+
+export const getHomepage = async () => {
+const response = await api.get(
+  "/homepage?populate[Hero][populate]=*&populate[WhyAlmoe][populate]=*&populate[BusinessSolutions][populate]=*&populate[Brands][populate]=*&populate[TechnologyPartner][populate]=*&populate[ContactSection][populate]=*"
+);
+  return response.data.data;
+};
+
+export const getBrandsWithLogos = async () => {
+  const response = await api.get("/brands?populate=logo");
+  return response.data.data;
+};
+
+export const submitContactMessage = async (formData) => {
+  const response = await api.post("/contact-messages", {
+    data: formData,
+  });
+
+  return response.data;
+};
 
 export default api;

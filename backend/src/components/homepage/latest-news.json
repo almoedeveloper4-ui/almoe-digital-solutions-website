@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_homepage_latest_news",
+  "info": {
+    "displayName": "latest-news"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string",
+      "required": true
+    },
+    "Events": {
+      "type": "component",
+      "component": "homepage.events",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

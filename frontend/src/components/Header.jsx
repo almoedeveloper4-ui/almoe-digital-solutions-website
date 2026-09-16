@@ -34,10 +34,12 @@ const categoryResponse = await getProductCategories();
 
   return (
    <header>
+    <a href="/" className="header-logo-link">
     <img
-      src={`http://localhost:1337${header.Logo.url}`}
+    src={header.Logo.url}
       alt="Almoe Digital Solutions"
     />
+    </a>
 
  <button
   className="hamburger"
